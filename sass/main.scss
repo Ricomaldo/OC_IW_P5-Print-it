@@ -1,0 +1,195 @@
+/* Variables */
+@import "variables";
+
+/* Reset */
+@import "reset";
+
+/* Modules */
+@import "banner";
+
+section {
+  margin-block: 6em;
+}
+
+h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  margin-block: 1em;
+}
+
+h3 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-block: 1em;
+}
+
+p,
+li {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 5%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 260px;
+  margin-block: 10px;
+}
+
+.btn {
+  background-color: $primary-color;
+  padding: 16px 32px;
+  margin-inline: 5px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.devis {
+  background-color: $secondary-color;
+}
+
+#about-us {
+  display: flex;
+  article,
+  #about-us aside {
+    flex: 1;
+  }
+  li {
+    background: url("./images/tricolor-icon.png") no-repeat left top;
+    font-size: 16px;
+    line-height: 26px;
+    padding-left: 2em;
+    width: 65%;
+    margin-bottom: 1em;
+  }
+}
+
+#products {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  div,
+  aside {
+    flex: 1;
+  }
+  div {
+    padding: 0 6em;
+  }
+  h2 {
+    margin-top: 0;
+  }
+}
+.bg-yellow {
+  background-color: $third-color;
+}
+
+#question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 3em;
+  h2 {
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+#why-us {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  > div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  article {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+  img {
+    width: 33%;
+    height: 150px;
+    text-align: center;
+    margin-inline: auto;
+    margin-block: 0;
+    object-fit: contain;
+  }
+}
+
+.bg-lightblue {
+  background-color: #e6f4fb;
+}
+
+#contact {
+  margin-bottom: 0;
+  article,
+  div {
+    flex: 1;
+  }
+  .container {
+    flex-direction: row;
+    display: flex;
+    padding: 6em;
+  }
+  .container > div > div {
+    display: flex;
+    padding-bottom: 20px;
+  }
+  h3 {
+    margin-top: 0;
+    background: url("./images/tricolor-icon.png") no-repeat left top;
+    padding-left: 1.5em;
+    width: 200px;
+  }
+}
+
+.inline-icon {
+  vertical-align: middle;
+}
+
+footer {
+  background-color: #28363d;
+  color: white;
+  display: flex;
+  padding-block: 3em;
+  justify-content: space-evenly;
+  font-size: 12px;
+  align-items: center;
+  div {
+    position: relative;
+  }
+  .footer-logo {
+    background-color: white;
+    max-width: 308px;
+    padding: 10px;
+  }
+  .footer-contact {
+    margin-bottom: 1em;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 1250px) {
+  #contact > article {
+    flex: 2;
+  }
+}
