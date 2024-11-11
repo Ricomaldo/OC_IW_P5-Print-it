@@ -19,32 +19,35 @@ const slides = [
 ];
 
 // Déclaration des variables
+const imageBanniere = document.querySelector("#banner img"); // Image principale du diaporama
+const texteBanniere = document.querySelector("#banner p"); // Texte de description de l'image affichée
+let indiceImage = 0; // Indice de l'image initialemebt affichée
 const flecheGauche = document.querySelector(".arrow_left"); // Flèche pour naviguer vers l'image précédente
 const flecheDroite = document.querySelector(".arrow_right"); // Flèche pour naviguer vers l'image suivante
-const imageBanniere = document.querySelector(".banner-img"); // Image principale du diaporama
-let indiceImage = 0; // Indice de l'image actuellement affichée
-let texteBanniere = document.querySelector("#banner p"); // Texte de description de l'image affichée
 
-// Ajout des points indicateurs (bullet points) pour la navigation dans le slider
-let pointsIndicateurs = document.querySelector(".dots");
+// Ajout des puces (bullet points) pour la navigation dans le slider
+let pucesConteneur = document.querySelector(".dots");
 for (let i = 0; i < slides.length; i++) {
-  const bullet = document.createElement("div");
-  bullet.classList.add("dot");
-  pointsIndicateurs.appendChild(bullet);
+  const puce = document.createElement("div");
+  puce.classList.add("dot");
+  pucesConteneur.appendChild(puce);
+  puce.addEventListener("click", () => {
+    chargerDiapositive(i);
+  });
 }
 
 /**
  * Sélectionne et met à jour le point de navigation actif.
  * @param {number} indiceImage - L'indice de l'image actuellement affichée.
  */
-function selectionnerPoint(indiceImage) {
-  const tousLesPoints = document.querySelectorAll(".dot");
+function selectionnerPuce(indiceImage) {
+  const bulletPoint = document.querySelectorAll(".dot");
   // Réinitialisation de l'état de sélection de tous les points
-  for (let i = 0; i < tousLesPoints.length; i++) {
-    tousLesPoints[i].classList.remove("dot_selected");
+  for (let i = 0; i < bulletPoint.length; i++) {
+    bulletPoint[i].classList.remove("dot_selected");
   }
   // Activation du point correspondant à l'image actuelle
-  tousLesPoints[indiceImage].classList.add("dot_selected");
+  bulletPoint[indiceImage].classList.add("dot_selected");
 }
 
 /**
@@ -54,7 +57,7 @@ function selectionnerPoint(indiceImage) {
 function chargerDiapositive(indiceImage) {
   imageBanniere.src = `./assets/images/slideshow/${slides[indiceImage].image}`;
   texteBanniere.innerHTML = slides[indiceImage].tagLine;
-  selectionnerPoint(indiceImage);
+  selectionnerPuce(indiceImage);
 }
 
 // Chargement initial : affichage de la première image et sélection du premier point de navigation
